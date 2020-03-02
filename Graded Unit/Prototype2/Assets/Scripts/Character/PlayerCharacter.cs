@@ -30,6 +30,8 @@ public class PlayerCharacter : MonoBehaviour
     private float nextdashtime = 3;
     //References the component audiosource and creates a variable needed for the coin sound in respect to the AudioSource
     public AudioSource coinSound;
+    //Keeps count of coins
+    public int coins;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +42,7 @@ public class PlayerCharacter : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //Calls all methods
         BasicMovement();
@@ -62,29 +64,29 @@ public class PlayerCharacter : MonoBehaviour
         //Checks if the space bar is pressed and if the player is on the ground (if not then they wont jump, this is to avoid infinite jumping
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {
-            
+
             //if the space bar is pressed the player gets moved up by the set variable "jumpheight" 
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpheight), ForceMode2D.Impulse);
+            rb.velocity = new Vector2(rb.velocity.x, jumpheight);
         }
 
         //If the player isnt touching the ground BUT does have a double jump still remaining then the if statement below will trigger
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded == false && doublejump==true )
         {
             //Adds a double jump equal to the original jump (though this can be easily changed by changing the "jumpheight" to something else
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpheight), ForceMode2D.Impulse);
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(rb.velocity.x, jumpheight);
             //Turns the doublejump boolean to false so they cant jump again
             doublejump = false;
         }
 
         //If on the ground the ability to use a double jump is made true again
         if (isGrounded == true)
-            {
+        {
             doublejump = true;
         }
 
 
         //For quicker descent to the ground, if the player starts falling the below if statement will trigger
-            if (rb.velocity.y < 0)
+        if (rb.velocity.y < 0)
         {//the player starts falling quicker as they fall more (-1 being to make sure they dont fall fast and Unity by default has a multiplier at 1 thus without this it would be too fast
             rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultipler - 1) * Time.deltaTime;
         }
@@ -113,7 +115,7 @@ public class PlayerCharacter : MonoBehaviour
                 //States in the log the cooldown is starting again
                 print("Cooldown started");
                 //Gives 10 units of speed to the right
-                rb.velocity += Vector2.right * 10;
+                rb.velocity = new Vector2(Input.GetAxis("Horizontal") * 10, 0f);
                 //resets the cooldown timer
                 nextdashtime = Time.time + cooldownTime;
             }
@@ -129,6 +131,7 @@ public class PlayerCharacter : MonoBehaviour
             Destroy(other.gameObject);
             //Plays the coin sound effect "Coin_Sound_effect.wav"
             coinSound.Play();
+            coins += 1;
         }
     }
 }

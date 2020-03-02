@@ -647,9 +647,9 @@ GameObject:
   m_Component:
   - component: {fileID: 646884240}
   - component: {fileID: 646884239}
-  - component: {fileID: 646884238}
   - component: {fileID: 646884237}
   - component: {fileID: 646884236}
+  - component: {fileID: 646884238}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -691,7 +691,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 646884235}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
@@ -713,10 +713,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 646884235}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81526f162ef3d7a4896ada72ac473226, type: 3}
+  m_Script: {fileID: 11500000, guid: 18fa822788f17be4aaa8754c0dcc2035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityModifier: 1
+  moveSpeed: 5
+  fallMultipler: 2.5
+  lowJumpMultiplier: 2
+  jumpheight: 10
+  feetPos: {fileID: 0}
+  checkRadius: 0
+  GroundType:
+    serializedVersion: 2
+    m_Bits: 0
+  cooldownTime: 2
+  coinSound: {fileID: 0}
 --- !u!212 &646884239
 SpriteRenderer:
   m_ObjectHideFlags: 0

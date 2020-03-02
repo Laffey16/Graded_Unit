@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Coins
   - Death
+  - background
   layers:
   - Default
   - TransparentFX
