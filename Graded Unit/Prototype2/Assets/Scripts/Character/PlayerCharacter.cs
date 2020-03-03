@@ -64,14 +64,14 @@ public class PlayerCharacter : MonoBehaviour
         {
             
             //if the space bar is pressed the player gets moved up by the set variable "jumpheight" 
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpheight), ForceMode2D.Impulse);
+            gameObject.velocity = (new Vector2(0f, jumpheight));
         }
 
         //If the player isnt touching the ground BUT does have a double jump still remaining then the if statement below will trigger
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded == false && doublejump==true )
         {
             //Adds a double jump equal to the original jump (though this can be easily changed by changing the "jumpheight" to something else
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpheight), ForceMode2D.Impulse);
+            gameObject.velocity = (new Vector2(0f, jumpheight));
             //Turns the doublejump boolean to false so they cant jump again
             doublejump = false;
         }
