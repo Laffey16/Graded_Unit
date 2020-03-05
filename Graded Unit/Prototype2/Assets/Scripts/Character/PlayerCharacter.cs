@@ -6,47 +6,58 @@ using UnityEngine;
 //Player Controls
 public class PlayerCharacter : MonoBehaviour
 {//Speed at which the player moves
-    public float moveSpeed = 5f;
+    private float moveSpeed = 8f;
     //Fall Multiplier
-    public float fallMultipler = 2.5f;
-    public float lowJumpMultiplier = 2f;
+    private float fallMultipler = 5f;
+    private float lowJumpMultiplier = 5f;
     //Changes the height at which the player jumps
-    public float jumpheight = 10;
-    //hitbox specifically for the ground
-    public Transform feetPos;
-    //Checks the radius below the "feet"
-    public float checkRadius;
+    private float jumpForce = 8;
     //For checking what type of ground is below
     public LayerMask GroundType;
-    //Checks if the player is on the ground or not
-    private bool isGrounded;
     //Boolean that turns on each time the player touches the ground. To allow a player a double jump but no more
     private bool doublejump;
     //A variable to reference the rigid body of the character
     Rigidbody2D rb;
-    //States the time of a s
-    public float cooldownTime = 2;
+    //A variable to reference the BoxCollider of the character
+    BoxCollider2D bc;
+    //How long in seconds the dash takes to be usable again
+    private float dashCooldown = 2;
     //Time until the player can reuse the dash
-    private float nextdashtime = 3;
+    private float nextdashtime;
+    //How long in seconds the dash lasts
+    private float dashTime = 1;
     //References the component audiosource and creates a variable needed for the coin sound in respect to the AudioSource
     public AudioSource coinSound;
     //Keeps count of coins
-    public int coins;
+    private int coins;
   //A boolean made to determine what direction the player is looking in
     private bool facingRight;
     //A float made to check a change in the direction checking if the velocity is currently positive or negative. 
     float direction;
     // Start is called before the first frame update
+    bool jumpRequest;
+    bool doubleJumpRequest;
     void Start()
     {
         //Calls on the component RigidBody
         rb = GetComponent<Rigidbody2D>();
+        bc = GetComponent<BoxCollider2D>();
         //Gets the component AudioSource 
         coinSound = GetComponent<AudioSource>();
         facingRight = true;
     }
 
-    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        {
+            jumpRequest = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) && doublejump == true)
+        {
+            doubleJumpRequest = true;
+        }
+  }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -54,7 +65,6 @@ public class PlayerCharacter : MonoBehaviour
         //Calls all methods
         BasicMovement();
         Jump();
-        CheckGround();
         Dash();
         
     }
@@ -68,12 +78,12 @@ public class PlayerCharacter : MonoBehaviour
         //Gives value to the direction as a float. This is used to compare which way the player is looking
         direction = (Input.GetAxis("Horizontal"));
         //If the players direction is positive and they're not looking to the right then the player is flipped
-        if (direction >0 && !facingRight)
+        if (direction > 0 && !facingRight)
         {
             //runs the function Flip
             Flip();
             //if the players direction is negative and they're not looking to the right then the player is flipped
-        } else if (direction <0 && facingRight)
+        } else if (direction < 0 && facingRight)
         {
             //runs the function Flip
             Flip();
@@ -85,26 +95,28 @@ public class PlayerCharacter : MonoBehaviour
     void Jump()
     {
         //Checks if the space bar is pressed and if the player is on the ground (if not then they wont jump, this is to avoid infinite jumping
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
+        if (jumpRequest)
         {
 
-            //if the space bar is pressed the player gets moved up by the set variable "jumpheight" 
+            //if the space bar is pressed the player gets moved up by the set variable "jumpForce" 
 
-            rb.velocity = new Vector2(rb.velocity.x, jumpheight);
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            jumpRequest = false;
         }
 
         //If the player isnt touching the ground BUT does have a double jump still remaining then the if statement below will trigger
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == false && doublejump==true )
+        if (doubleJumpRequest)
         {
-            //Adds a double jump equal to the original jump (though this can be easily changed by changing the "jumpheight" to something else
-            rb.velocity = (new Vector2(0f, jumpheight));
+            //Adds a double jump equal to the original jump (though this can be easily changed by changing the "jumpForce" to something else
+            rb.velocity = (new Vector2(0f, jumpForce));
 
             //Turns the doublejump boolean to false so they cant jump again
             doublejump = false;
+            doubleJumpRequest = false;
         }
 
         //If on the ground the ability to use a double jump is made true again
-        if (isGrounded == true)
+        if (IsGrounded())
         {
             doublejump = true;
         }
@@ -113,20 +125,23 @@ public class PlayerCharacter : MonoBehaviour
         //For quicker descent to the ground, if the player starts falling the below if statement will trigger
         if (rb.velocity.y < 0)
         {//the player starts falling quicker as they fall more (-1 being to make sure they dont fall fast and Unity by default has a multiplier at 1 thus without this it would be too fast
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultipler - 1) * Time.deltaTime;
+            rb.gravityScale = fallMultipler;
         }
-        else if (rb.velocity.y > 0 && !Input.GetKeyDown(KeyCode.Space))
+        else if (rb.velocity.y > 0 && !Input.GetKey(KeyCode.Space))
         {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            rb.gravityScale = lowJumpMultiplier;
+        }
+        else
+        {
+            rb.gravityScale = 1;
         }
     }
     //A method for checking if they're on the ground
-    void CheckGround()
+    private bool IsGrounded()
     {
-        //Checks if the player is on the ground by using a small little invisible circle, the circle also detects the layer allowing for it to only jump on ground if another platform is added such as water
-        isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, GroundType);
-        //prints their state, no reason to be here just for debugging
-       
+
+        RaycastHit2D raycastHit = Physics2D.BoxCast(bc.bounds.center, bc.bounds.size, 0f, Vector2.down, 0.5f, GroundType);
+        return raycastHit.collider != null;
     }
 
     void Dash()
@@ -142,27 +157,7 @@ public class PlayerCharacter : MonoBehaviour
                 //Gives 10 units of speed to the right
                 rb.velocity = new Vector2(Input.GetAxis("Horizontal") * 10, 0f);
                 //resets the cooldown timer
-                nextdashtime = Time.time + cooldownTime;
-                //if the player is facing to the right the code for dashing to the right will active and the player will get velocity going right
-                if (facingRight == true)
-                {
-                    //States in the log the cooldown is starting again
-                    print("Cooldown started");
-                    //Gives 10 units of speed to the right
-                    rb.velocity += Vector2.right * 10;
-                    //resets the cooldown timer
-                    nextdashtime = Time.time + cooldownTime;
-                }
-                //However if the player is looking left instead of right then the player will receive velocity going left
-                else if(facingRight == false)
-                {
-                    //States in the log the cooldown is starting again
-                    print("Cooldown started");
-                    //Gives 10 units of speed to the left
-                    rb.velocity += Vector2.left * 10;
-                    //resets the cooldown timer
-                    nextdashtime = Time.time + cooldownTime;
-                }
+                nextdashtime = Time.time + dashCooldown;
 
 
             }
