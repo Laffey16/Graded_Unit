@@ -34,9 +34,14 @@ public class PlayerCharacter : MonoBehaviour
     private bool facingRight;
     //A float made to check a change in the direction checking if the velocity is currently positive or negative. 
     float direction;
-    // Start is called before the first frame update
+    //2 different booleans used for jumping requests. These are here to for optimization purposes
     bool jumpRequest;
     bool doubleJumpRequest;
+    //Used to reference the ShootingPos on the character for creating bullets
+    public Transform ShootPoint;
+    //Used to reference the bullet prefab for creating bullets
+    public GameObject BulletPrefeb;
+    // Start is called before the first frame update
     void Start()
     {
         //Calls on the component RigidBody
@@ -49,15 +54,26 @@ public class PlayerCharacter : MonoBehaviour
 
     private void Update()
     {
+        //If the player is grounded and jumps (using space) the game gives permission to jump
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             jumpRequest = true;
         }
+        //If the player still has a jump left and jumps (using space) the game gives permission to double jump
         else if (Input.GetKeyDown(KeyCode.Space) && doublejump == true)
         {
             doubleJumpRequest = true;
         }
-  }
+
+        // If the left mouse button is pressed
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+
+        {
+            //Runs the function shoot
+            Shoot();
+        }
+    }
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -124,15 +140,17 @@ public class PlayerCharacter : MonoBehaviour
 
         //For quicker descent to the ground, if the player starts falling the below if statement will trigger
         if (rb.velocity.y < 0)
-        {//the player starts falling quicker as they fall more (-1 being to make sure they dont fall fast and Unity by default has a multiplier at 1 thus without this it would be too fast
+        {//the player starts falling quicker as they fall more (-1 being to make sure they dont fall fast and Unity by default has a multiplier at 1 thus without this it would be too fast)
             rb.gravityScale = fallMultipler;
         }
         else if (rb.velocity.y > 0 && !Input.GetKey(KeyCode.Space))
         {
+            //Sets the gravity to the low jump multiplier 
             rb.gravityScale = lowJumpMultiplier;
         }
         else
         {
+            //Sets the gravity back to 1 
             rb.gravityScale = 1;
         }
     }
@@ -163,7 +181,14 @@ public class PlayerCharacter : MonoBehaviour
             }
         }
 
+       
+
         
+    }
+    void Shoot()
+    {
+        //Spawns the bullet prebab at the shootingpos position on the player at the correct rotation of the player
+        Instantiate(BulletPrefeb, ShootPoint.position, ShootPoint.rotation);
     }
     private void Flip()
     {
