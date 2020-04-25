@@ -15,7 +15,7 @@ public class TransitionScene : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //Using Scene Manager the player will be transported to the next scene specified by the value of the variable next level edited in the editor (probably can be automated)
-            SceneManager.LoadScene(nextlevel);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         }
     }
 }

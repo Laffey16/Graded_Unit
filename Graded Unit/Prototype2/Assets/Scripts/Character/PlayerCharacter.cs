@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 //Callum
 // 22/02/2020
 //Player Controls
@@ -22,14 +23,14 @@ public class PlayerCharacter : MonoBehaviour
     BoxCollider2D bc;
     //How long in seconds the dash takes to be usable again
     private float dashCooldown = 2;
+   public int Health=20;
     //Time until the player can reuse the dash
     private float nextdashtime;
-    //How long in seconds the dash lasts
-    private float dashTime = 1;
+
     //References the component audiosource and creates a variable needed for the coin sound in respect to the AudioSource
     public AudioSource coinSound;
     //Keeps count of coins
-    private int coins;
+    public int coins;
   //A boolean made to determine what direction the player is looking in
     private bool facingRight;
     //A float made to check a change in the direction checking if the velocity is currently positive or negative. 
@@ -71,7 +72,15 @@ public class PlayerCharacter : MonoBehaviour
         {
             //Runs the function shoot
             Shoot();
+            Health -= 1;
         }
+        //If Health is ever 0 or under
+        if (Health <= 0)
+        {
+            //The scene reloads and the player restarts the level
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        
     }
 
 
@@ -212,6 +221,11 @@ public class PlayerCharacter : MonoBehaviour
             //Plays the coin sound effect "Coin_Sound_effect.wav"
             coinSound.Play();
             coins += 1;
+        }
+        //If the player touches an enemy the player takes 5 damage
+        if (other.gameObject.CompareTag(("Enemies")))
+        {
+            Health -= 5;
         }
     }
 }

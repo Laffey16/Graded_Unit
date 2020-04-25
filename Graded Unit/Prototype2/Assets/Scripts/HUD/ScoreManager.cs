@@ -4,25 +4,28 @@ using UnityEngine;
 using TMPro;
 public class ScoreManager : MonoBehaviour
 {
-    //References the Scoremanager module
+    //References the Scoremanager Component
     public static ScoreManager instance;
     //References the Text module
     public TextMeshProUGUI text;
-    int score;
-
+    [SerializeField]
+    //A variable made to access the player 
+    private PlayerCharacter playerObj;
     // Start is called before the first frame update
-    void Start()
+    private void FixedUpdate()
     {
-        if (instance == null)
-            instance = this;
+        ChangeScore();
     }
 
     // Update is called once per frame
-  public void ChangeScore(int coinValue)
+    public void ChangeScore()
     {
-        //Changes the Score according to the coin value (Which in this case is 1)
-        score += coinValue;
         //Outputs X + whatever the score is (converting it from a integer to a string)
-        text.text = "X" + score.ToString();
+        text.text = "X" + playerObj.coins.ToString();
+        // A little congratulations if the player gets all coiins
+        if (playerObj.coins == 16)
+        {
+            print("Congratulations");
+        }
     }
 }

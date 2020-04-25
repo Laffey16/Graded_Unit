@@ -21,9 +21,9 @@ public class Bullet : MonoBehaviour
     public IEnumerator Dropoff()
     {
         //After waiting for 3 seconds this function will trigger
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.5f);
         //Sets the gravity to one to represent bullet drop off
-        RB2.gravityScale = 1;
+        RB2.gravityScale = 2;
     }
 
     //function to check if the bullet collides with anything
