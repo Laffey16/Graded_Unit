@@ -8,10 +8,14 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager instance;
     //References the Text module
     public TextMeshProUGUI text;
-    [SerializeField]
+   
     //A variable made to access the player 
     private PlayerCharacter playerObj;
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        //Finds the player character and sets and sets the variable playerObj to them so it can be accessed
+        playerObj = GameObject.FindObjectOfType<PlayerCharacter>();
+    }
     private void FixedUpdate()
     {
         ChangeScore();
