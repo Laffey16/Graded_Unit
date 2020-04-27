@@ -29,9 +29,22 @@ public class Bullet : MonoBehaviour
     //function to check if the bullet collides with anything
     private void OnTriggerEnter2D(Collider2D bulletcollision)
     {
-        //If the bullet collides with anything that has the tag "Ground" such as the tilemap then the if statement is triggered
-        if (bulletcollision.gameObject.CompareTag ("Ground"))
-            //Destroys the bullet
+        //Since the the player can touch there own bullet this allows for the bullet to phase through them instead
+        if (bulletcollision.gameObject.CompareTag("Player"))
+        {
+
+        }
+        //Allows coins to be shot through
+        else if (bulletcollision.gameObject.CompareTag("Coins"))
+        {
+
+        }
+        //Anything else such as an enemy or the ground will destroy the bullet
+        else
+        {
             Destroy(gameObject);
+        } 
+    
+   
     }
 }
