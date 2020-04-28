@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
 public class HealthManager : MonoBehaviour
 {
     //References the Scoremanager Component
@@ -11,10 +13,17 @@ public class HealthManager : MonoBehaviour
     //A variable made to access the player 
     private PlayerCharacter playerObj;
     //When the game is loaded
+    public Slider slider;
     private void Awake()
     {
         //Finds the player character and sets and sets the variable playerObj to them so it can be accessed
         playerObj = GameObject.FindObjectOfType<PlayerCharacter>();
+        HealthBar();
+    }
+    private void HealthBar()
+    {
+        //Sets the Max Health to the starting health
+        slider.maxValue = playerObj.Health;
     }
     private void FixedUpdate()
     {
@@ -26,5 +35,7 @@ public class HealthManager : MonoBehaviour
     {
         //Outputs the players health to hud as a string
         text.text = "Health: " + playerObj.Health.ToString();
+        slider.value = playerObj.Health;
+        
     }
 }

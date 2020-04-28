@@ -9,13 +9,16 @@ public class EnemySpawner : MonoBehaviour
     //Allows the prefab Enemy to be spawned
     public GameObject Enemy;
     private int RandomSpawn;
+    [SerializeField]
+    private float SpawnTime=25;
     // Start is called before the first frame update
     void Start()
     {
         //Every x amount of seconds in this case 100 the sub spawn enemy is called 
-        InvokeRepeating("SpawnEnemy", 0f, 100f);  
+        InvokeRepeating("SpawnEnemy", 0f, SpawnTime);  
     }
 
+    
     void SpawnEnemy()
     {
         //Randomizes which spawnpoint will be chosen. This is repeating each look
