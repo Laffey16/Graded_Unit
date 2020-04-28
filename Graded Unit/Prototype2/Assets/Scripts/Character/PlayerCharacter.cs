@@ -28,7 +28,7 @@ public class PlayerCharacter : MonoBehaviour
     private float nextdashtime;
 
     //References the component audiosource and creates a variable needed for the coin sound in respect to the AudioSource
-    public AudioSource coinSound;
+    private AudioSource coinSound;
     //Keeps count of coins
     public int coins;
   //A boolean made to determine what direction the player is looking in
@@ -51,6 +51,7 @@ public class PlayerCharacter : MonoBehaviour
         //Gets the component AudioSource 
         coinSound = GetComponent<AudioSource>();
         facingRight = true;
+        nextdashtime = 0;
     }
 
     private void Update()

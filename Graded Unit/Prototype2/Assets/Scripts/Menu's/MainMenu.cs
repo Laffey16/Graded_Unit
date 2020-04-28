@@ -13,23 +13,22 @@ public class MainMenu : MonoBehaviour
         ClickSound.Play();
     }
     public void Controls()
-    {
-   
+    { 
+        //Loads the Controls Scene to show players the games controls
         SceneManager.LoadScene("Controls");
-        ClickSound.Play();
     }
 
     public void QuitGame()
     {
-        ClickSound.Play();
+        
         //By pressing the button the game is closed
         Application.Quit();
     }
 
     public void Back()
     {
+        //Goes back from the controls window back to the main menu
         SceneManager.LoadScene("MainMenu");
-        ClickSound.Play();
     }
 }
 

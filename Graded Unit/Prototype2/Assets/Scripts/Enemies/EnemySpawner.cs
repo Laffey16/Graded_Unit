@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
         InvokeRepeating("SpawnEnemy", 0f, SpawnTime);  
     }
 
+    
     void SpawnEnemy()
     {
         //Randomizes which spawnpoint will be chosen. This is repeating each look
