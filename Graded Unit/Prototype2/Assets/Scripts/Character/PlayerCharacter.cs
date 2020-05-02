@@ -15,6 +15,8 @@ public class PlayerCharacter : MonoBehaviour
     private float jumpForce = 8;
     //For checking what type of ground is below
     public LayerMask GroundType;
+    public LayerMask EnemyIdentifier;
+    public int MeleeDamage;
     //Boolean that turns on each time the player touches the ground. To allow a player a double jump but no more
     private bool doublejump;
     //A variable to reference the rigid body of the character
@@ -22,13 +24,18 @@ public class PlayerCharacter : MonoBehaviour
     //A variable to reference the BoxCollider of the character
     BoxCollider2D bc;
     //How long in seconds the dash takes to be usable again
+    [SerializeField]
     private float dashCooldown = 2;
    public int Health=20;
     //Time until the player can reuse the dash
     private float nextdashtime;
+    private float Attackcooldown;
+    public float nextattacktime;
 
-    //References the component audiosource and creates a variable needed for the coin sound in respect to the AudioSource
-    private AudioSource coinSound;
+    //References the component audiosource and creates variables needed for individual sounds in respect to the AudioSource 
+    private AudioSource Source;
+    public AudioClip CoinSound;
+    public AudioClip JumpSound;
     //Keeps count of coins
     public int coins;
   //A boolean made to determine what direction the player is looking in
@@ -42,6 +49,8 @@ public class PlayerCharacter : MonoBehaviour
     public Transform ShootPoint;
     //Used to reference the bullet prefab for creating bullets
     public GameObject BulletPrefeb;
+    public Transform AttackPoint;
+    public float attackRange;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +58,7 @@ public class PlayerCharacter : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         bc = GetComponent<BoxCollider2D>();
         //Gets the component AudioSource 
-        coinSound = GetComponent<AudioSource>();
+        Source = GetComponent<AudioSource>();
         facingRight = true;
         nextdashtime = 0;
     }
@@ -59,21 +68,23 @@ public class PlayerCharacter : MonoBehaviour
         //If the player is grounded and jumps (using space) the game gives permission to jump
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
+            Source.clip = JumpSound;
+            Source.Play();
             jumpRequest = true;
         }
         //If the player still has a jump left and jumps (using space) the game gives permission to double jump
         else if (Input.GetKeyDown(KeyCode.Space) && doublejump == true)
         {
+
             doubleJumpRequest = true;
         }
 
         // If the left mouse button is pressed
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
 
         {
             //Runs the function shoot
             Shoot();
-            Health -= 1;
         }
         //If Health is ever 0 or under
         if (Health <= 0)
@@ -81,7 +92,14 @@ public class PlayerCharacter : MonoBehaviour
             //The scene reloads and the player restarts the level
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        
+    }
+    //This method allows for a visual wireframe of the melee attacks range. This makes it alot easier to change by eye instead of kinda guessing how big or small it is.
+    private void OnDrawGizmosSelected()
+    {
+        //Makes the wireframe red
+        Gizmos.color = Color.red;
+        //Creates the wireframe from the shooting point and uses the variable attackRange to represent how big or small it is.
+        Gizmos.DrawWireSphere(AttackPoint.position, attackRange);
     }
 
 
@@ -92,6 +110,8 @@ public class PlayerCharacter : MonoBehaviour
         BasicMovement();
         Jump();
         Dash();
+        Melee();
+
         
     }
     //Method for movement
@@ -123,11 +143,13 @@ public class PlayerCharacter : MonoBehaviour
         //Checks if the space bar is pressed and if the player is on the ground (if not then they wont jump, this is to avoid infinite jumping
         if (jumpRequest)
         {
-
+            
             //if the space bar is pressed the player gets moved up by the set variable "jumpForce" 
 
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            //The request to jump is no longer true and thus the player can no longer jump
             jumpRequest = false;
+            
         }
 
         //If the player isnt touching the ground BUT does have a double jump still remaining then the if statement below will trigger
@@ -167,7 +189,6 @@ public class PlayerCharacter : MonoBehaviour
     //A method for checking if they're on the ground
     private bool IsGrounded()
     {
-
         RaycastHit2D raycastHit = Physics2D.BoxCast(bc.bounds.center, bc.bounds.size, 0f, Vector2.down, 0.5f, GroundType);
         return raycastHit.collider != null;
     }
@@ -177,23 +198,48 @@ public class PlayerCharacter : MonoBehaviour
         //Gives a cooldown period of 3 seconds until they can dash again
         if (Time.time > nextdashtime)
         {
+            print("Cooldown started");
             //If the left shift key is pressed then the if statement will trigger
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
                 //States in the log the cooldown is starting again
-                print("Cooldown started");
+                
                 //Gives 10 units of speed to the right
                 rb.velocity = new Vector2(Input.GetAxis("Horizontal") * 10, 0f);
                 //resets the cooldown timer
                 nextdashtime = Time.time + dashCooldown;
-
-
             }
         }
 
-       
-
+    }
+    void Melee()
+    {
         
+        if(Attackcooldown <= 0)
+        {
+            //If the left mouse button is pressed
+            if (Input.GetKey(KeyCode.Mouse0))
+            {
+                //PLAYS COIN SOUND EFFECT PURELY AS DEBUG (WILL BE REPLACED WITH ACTUAL MELEE SOUND)
+                Source.clip = CoinSound;
+                Source.Play();
+                //Creates a circlular collider at the the shootingpoint transform with a set attack range and makes it only deal damage to enemies
+                Collider2D[] Enemies = Physics2D.OverlapCircleAll(AttackPoint.position, attackRange, EnemyIdentifier);
+                //Creates a for loop
+                for (int i = 0; i < Enemies.Length; i++)
+                {
+                    //References the enemies
+                    Enemies[i].GetComponent<EnemyBehaviour>().health -= MeleeDamage;
+                } 
+            }
+            Attackcooldown = nextattacktime;
+        }
+
+        else
+        {
+            Attackcooldown -= Time.deltaTime;
+        }
+       
     }
     void Shoot()
     {
@@ -220,7 +266,8 @@ public class PlayerCharacter : MonoBehaviour
             //Destroys the coin so it cant be continuously picked up
             Destroy(other.gameObject);
             //Plays the coin sound effect "Coin_Sound_effect.wav"
-            coinSound.Play();
+            Source.clip = CoinSound;
+            Source.Play();
             coins += 1;
         }
         //If the player touches an enemy the player takes 5 damage
