@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 562839724032558865}
   - component: {fileID: 562839724032558876}
   - component: {fileID: 4243834330241397691}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemies
   m_TagString: Enemies
   m_Icon: {fileID: 0}
@@ -126,10 +126,9 @@ MonoBehaviour:
   GroundType:
     serializedVersion: 2
     m_Bits: 256
-  Enemy:
-    serializedVersion: 2
-    m_Bits: 1024
   GroundDetection: {fileID: 87750703823213834}
+  DamageEffect: {fileID: 7169781486441871278, guid: eb8f3c5622fd90a43a84efc43f33c2c3,
+    type: 3}
 --- !u!60 &562839724032558876
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -204,7 +203,7 @@ GameObject:
   - component: {fileID: 381706327833652994}
   - component: {fileID: 5130595372280693052}
   - component: {fileID: 4475230730993958237}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +301,7 @@ GameObject:
   - component: {fileID: 5357424027292158325}
   - component: {fileID: 463381841388654438}
   - component: {fileID: 7073035761120721501}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +374,7 @@ GameObject:
   - component: {fileID: 6164294741538753756}
   - component: {fileID: 4832141850137350472}
   - component: {fileID: 4320832957762755104}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,7 +447,7 @@ GameObject:
   - component: {fileID: 1230711769649643071}
   - component: {fileID: 6837621888135302629}
   - component: {fileID: 8463541413156202629}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy_HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -556,7 +555,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 87750703823213834}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GroundDetection
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}

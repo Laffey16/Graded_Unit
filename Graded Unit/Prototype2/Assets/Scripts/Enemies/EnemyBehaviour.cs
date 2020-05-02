@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
 using UnityEngine.UI;
+using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 //WILL BE EXPANEDED UPON
 public class EnemyBehaviour : MonoBehaviour
@@ -17,6 +18,7 @@ public class EnemyBehaviour : MonoBehaviour
     public LayerMask GroundType;
     //References the ground detector in front of the enemy
     public Transform GroundDetection;
+    public GameObject DamageEffect;
     private void Start()
     {
         HealthBar();
@@ -30,7 +32,6 @@ public class EnemyBehaviour : MonoBehaviour
     {
         
         EnemyAI();
-        
     }
     private void EnemyAI()
     {
@@ -103,6 +104,7 @@ public class EnemyBehaviour : MonoBehaviour
         //And this object happens to interact with a bullet
         if (other.CompareTag("Bullet"))
         {
+            Instantiate(DamageEffect, transform.position, Quaternion.identity);
             //minus 1 health
             health -= 1;
         }

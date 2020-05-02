@@ -635,8 +635,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 179, y: 35.9}
-  m_SizeDelta: {x: 392.8, y: 245.2}
+  m_AnchoredPosition: {x: 202.6, y: 12.8}
+  m_SizeDelta: {x: 440, y: 291.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1229079276
 MonoBehaviour:
@@ -664,7 +664,12 @@ MonoBehaviour:
 
     Jump-Space
 
-    Dash-Left Shift'
+    Dash-Left Shift
+
+    Melee-
+    Left Mouse Button
+
+    Shoot-Right Mouse Button'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -733,12 +738,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: -1.1787765}
   m_textInfo:
     textComponent: {fileID: 1229079276}
-    characterCount: 51
+    characterCount: 101
     spriteCount: 0
-    spaceCount: 5
-    wordCount: 6
+    spaceCount: 12
+    wordCount: 13
     linkCount: 0
-    lineCount: 5
+    lineCount: 7
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
