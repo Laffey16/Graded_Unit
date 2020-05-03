@@ -7,7 +7,6 @@ public class TransitionScene : MonoBehaviour
 {
     //A serialized field allows the variable to be edited from the editor without making it a public 
     //Next Level is made to assign a scene for transition between levels
-    [SerializeField] private string nextlevel;
     //private sub made specificially for collisions between different tags in a 2d space
     private void OnTriggerEnter2D(Collider2D other)
     {

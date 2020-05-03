@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 //Callum
 // 22/02/2020
 //Player Controls
@@ -10,6 +13,7 @@ public class PlayerCharacter : MonoBehaviour
     private float moveSpeed = 8f;
     //Fall Multiplier
     private float fallMultipler = 5f;
+    private Respawn RespawnObj;
     private float lowJumpMultiplier = 5f;
     //Changes the height at which the player jumps
     private float jumpForce = 8;
@@ -26,16 +30,13 @@ public class PlayerCharacter : MonoBehaviour
     //How long in seconds the dash takes to be usable again
     [SerializeField]
     private float dashCooldown = 2;
-   public int Health=20;
+   public int Health=1000;
     //Time until the player can reuse the dash
     private float nextdashtime;
     private float Attackcooldown;
     public float nextattacktime;
-
-    //References the component audiosource and creates variables needed for individual sounds in respect to the AudioSource 
-    private AudioSource Source;
-    public AudioClip CoinSound;
-    public AudioClip JumpSound;
+    //References the PlayerAudio Script. It handles all the audio 
+    private PlayerAudio PlayerObj;
     //Keeps count of coins
     public int coins;
   //A boolean made to determine what direction the player is looking in
@@ -50,35 +51,47 @@ public class PlayerCharacter : MonoBehaviour
     //Used to reference the bullet prefab for creating bullets
     public GameObject BulletPrefeb;
     public Transform AttackPoint;
-    public float attackRange;
+    //These 2 variables are used to control how large of an area the melee hitbox takes up
+    public float AttackRangeX;
+    public float AttackRangeY;
     // Start is called before the first frame update
     void Start()
     {
-        //Calls on the component RigidBody
-        rb = GetComponent<Rigidbody2D>();
+       
+    //Calls on the component RigidBody
+    rb = GetComponent<Rigidbody2D>();
         bc = GetComponent<BoxCollider2D>();
-        //Gets the component AudioSource 
-        Source = GetComponent<AudioSource>();
         facingRight = true;
         nextdashtime = 0;
+        PlayerObj = GameObject.FindObjectOfType<PlayerAudio>();
+        RespawnObj = GameObject.FindObjectOfType<Respawn>();
     }
-
     private void Update()
     {
+        if (Time.timeScale == 1)
+        {
+            Updates();
+        }
+    }
+    private void Updates()
+    {
+        
         //If the player is grounded and jumps (using space) the game gives permission to jump
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
-            Source.clip = JumpSound;
-            Source.Play();
+            //Accesses the PlayerAudio script and plays a jump sound when the player jumps
+            PlayerObj.Source.clip = PlayerObj.JumpSound;
+            PlayerObj.Source.Play();
             jumpRequest = true;
         }
         //If the player still has a jump left and jumps (using space) the game gives permission to double jump
         else if (Input.GetKeyDown(KeyCode.Space) && doublejump == true)
         {
-
+            //Accesses the PlayerAudio script and plays a different jump sound when the player double jumps
+            PlayerObj.Source.clip = PlayerObj.DoubleJumpSound;
+            PlayerObj.Source.Play();
             doubleJumpRequest = true;
         }
-
         // If the left mouse button is pressed
         if (Input.GetKeyDown(KeyCode.Mouse1))
 
@@ -86,20 +99,18 @@ public class PlayerCharacter : MonoBehaviour
             //Runs the function shoot
             Shoot();
         }
-        //If Health is ever 0 or under
-        if (Health <= 0)
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            //The scene reloads and the player restarts the level
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Dash();
         }
     }
-    //This method allows for a visual wireframe of the melee attacks range. This makes it alot easier to change by eye instead of kinda guessing how big or small it is.
+    //This method allows for a visual wireframe of the 1 attacks range. This makes it alot easier to change by eye instead of kinda guessing how big or small it is.
     private void OnDrawGizmosSelected()
     {
         //Makes the wireframe red
         Gizmos.color = Color.red;
         //Creates the wireframe from the shooting point and uses the variable attackRange to represent how big or small it is.
-        Gizmos.DrawWireSphere(AttackPoint.position, attackRange);
+        Gizmos.DrawWireCube(AttackPoint.position, new Vector3(AttackRangeX, AttackRangeY, 1));
     }
 
 
@@ -109,10 +120,7 @@ public class PlayerCharacter : MonoBehaviour
         //Calls all methods
         BasicMovement();
         Jump();
-        Dash();
         Melee();
-
-        
     }
     //Method for movement
     void BasicMovement()
@@ -198,17 +206,13 @@ public class PlayerCharacter : MonoBehaviour
         //Gives a cooldown period of 3 seconds until they can dash again
         if (Time.time > nextdashtime)
         {
-            print("Cooldown started");
-            //If the left shift key is pressed then the if statement will trigger
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
                 //States in the log the cooldown is starting again
-                
+                PlayerObj.Source.clip = PlayerObj.DashSound;
+                PlayerObj.Source.Play();
                 //Gives 10 units of speed to the right
                 rb.velocity = new Vector2(Input.GetAxis("Horizontal") * 10, 0f);
                 //resets the cooldown timer
                 nextdashtime = Time.time + dashCooldown;
-            }
         }
 
     }
@@ -220,16 +224,17 @@ public class PlayerCharacter : MonoBehaviour
             //If the left mouse button is pressed
             if (Input.GetKey(KeyCode.Mouse0))
             {
-                //PLAYS COIN SOUND EFFECT PURELY AS DEBUG (WILL BE REPLACED WITH ACTUAL MELEE SOUND)
-                Source.clip = CoinSound;
-                Source.Play();
+                //References Player Audio and states if the enemy was hit
+                PlayerObj.Source.clip = PlayerObj.MeleeSound;
+                PlayerObj.Source.Play();
                 //Creates a circlular collider at the the shootingpoint transform with a set attack range and makes it only deal damage to enemies
-                Collider2D[] Enemies = Physics2D.OverlapCircleAll(AttackPoint.position, attackRange, EnemyIdentifier);
+                Collider2D[] Enemies = Physics2D.OverlapBoxAll(AttackPoint.position, new Vector2(AttackRangeX,AttackRangeY),0,EnemyIdentifier);
                 //Creates a for loop
                 for (int i = 0; i < Enemies.Length; i++)
                 {
                     //References the enemies
                     Enemies[i].GetComponent<EnemyBehaviour>().health -= MeleeDamage;
+                    print("hit");
                 } 
             }
             Attackcooldown = nextattacktime;
@@ -243,6 +248,9 @@ public class PlayerCharacter : MonoBehaviour
     }
     void Shoot()
     {
+        
+        PlayerObj.Source.clip = PlayerObj.ShootingSound;
+        PlayerObj.Source.Play();
         //Spawns the bullet prebab at the shootingpos position on the player at the correct rotation of the player
         Instantiate(BulletPrefeb, ShootPoint.position, ShootPoint.rotation);
     }
@@ -266,14 +274,17 @@ public class PlayerCharacter : MonoBehaviour
             //Destroys the coin so it cant be continuously picked up
             Destroy(other.gameObject);
             //Plays the coin sound effect "Coin_Sound_effect.wav"
-            Source.clip = CoinSound;
-            Source.Play();
+            PlayerObj.Source.clip = PlayerObj.CoinSound;
+            PlayerObj.Source.Play();
             coins += 1;
         }
         //If the player touches an enemy the player takes 5 damage
         if (other.gameObject.CompareTag(("Enemies")))
         {
+            PlayerObj.Source.clip = PlayerObj.DamageSound;
+            PlayerObj.Source.Play();
             Health -= 5;
         }
+
     }
 }

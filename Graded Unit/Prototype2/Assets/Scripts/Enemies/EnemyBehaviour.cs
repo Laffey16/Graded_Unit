@@ -19,6 +19,9 @@ public class EnemyBehaviour : MonoBehaviour
     //References the ground detector in front of the enemy
     public Transform GroundDetection;
     public GameObject DamageEffect;
+    private AudioSource EnemySource;
+    public AudioClip DamageSound;
+
     private void Start()
     {
         HealthBar();
@@ -27,6 +30,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         //When the enemy spawns it makes sure the healthbar is full.
         slider.maxValue = health;
+        EnemySource = GetComponent<AudioSource>();
     }
     private void FixedUpdate()
     {
@@ -107,6 +111,8 @@ public class EnemyBehaviour : MonoBehaviour
             Instantiate(DamageEffect, transform.position, Quaternion.identity);
             //minus 1 health
             health -= 1;
+            EnemySource.clip = DamageSound;
+            EnemySource.Play();
         }
         //If their health is equal to 0 they die
         if (health<=0)

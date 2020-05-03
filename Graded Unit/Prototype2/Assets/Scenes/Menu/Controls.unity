@@ -422,6 +422,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef223c11072d8c4382c18e794fd092f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ClickSound: {fileID: 8300000, guid: 66bc7bd16aeb13a46aa23f3fcebd1129, type: 3}
+  other: {fileID: 8300000, guid: 66bc7bd16aeb13a46aa23f3fcebd1129, type: 3}
 --- !u!82 &813968549
 AudioSource:
   m_ObjectHideFlags: 0
@@ -635,8 +637,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 202.6, y: 12.8}
-  m_SizeDelta: {x: 440, y: 291.4}
+  m_AnchoredPosition: {x: 202.6, y: -8.13}
+  m_SizeDelta: {x: 440, y: 333.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1229079276
 MonoBehaviour:
@@ -669,7 +671,9 @@ MonoBehaviour:
     Melee-
     Left Mouse Button
 
-    Shoot-Right Mouse Button'
+    Shoot-Right Mouse Button
+
+    Pause-Escape'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -735,15 +739,15 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: -1.1787765}
+  m_margin: {x: 0, y: 0, z: 0, w: -1.178792}
   m_textInfo:
     textComponent: {fileID: 1229079276}
-    characterCount: 101
+    characterCount: 114
     spriteCount: 0
-    spaceCount: 12
-    wordCount: 13
+    spaceCount: 13
+    wordCount: 14
     linkCount: 0
-    lineCount: 7
+    lineCount: 8
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0

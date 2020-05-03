@@ -707,6 +707,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef223c11072d8c4382c18e794fd092f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ClickSound: {fileID: 8300000, guid: 66bc7bd16aeb13a46aa23f3fcebd1129, type: 3}
+  other: {fileID: 8300000, guid: d2bc3c8d33cce4b4aa90f788d95da0e7, type: 3}
 --- !u!82 &813968549
 AudioSource:
   m_ObjectHideFlags: 0

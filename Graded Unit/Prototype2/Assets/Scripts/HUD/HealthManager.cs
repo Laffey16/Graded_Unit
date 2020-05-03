@@ -19,6 +19,7 @@ public class HealthManager : MonoBehaviour
         //Finds the player character and sets and sets the variable playerObj to them so it can be accessed
         playerObj = GameObject.FindObjectOfType<PlayerCharacter>();
         HealthBar();
+       
     }
     private void HealthBar()
     {
@@ -35,6 +36,7 @@ public class HealthManager : MonoBehaviour
     {
         //Outputs the players health to hud as a string
         text.text = "Health: " + playerObj.Health.ToString();
+        //Changes the value of the Health Bar
         slider.value = playerObj.Health;
         
     }

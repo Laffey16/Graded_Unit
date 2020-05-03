@@ -6,6 +6,7 @@ public class Camera_Follow : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform player;
+  
     //Specifically in the module "Update" due to how a fixedupdate would cause a laggy camera and thus the camera needs to be constantly updated
     void Update()
     {
