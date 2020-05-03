@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 //Callum
-// 22/02/2020
+//22/02/2020
 //Player Controls
 public class PlayerCharacter : MonoBehaviour
 {//Speed at which the player moves
@@ -30,7 +30,7 @@ public class PlayerCharacter : MonoBehaviour
     //How long in seconds the dash takes to be usable again
     [SerializeField]
     private float dashCooldown = 2;
-   public int Health=1000;
+    public int Health = 1000;
     //Time until the player can reuse the dash
     private float nextdashtime;
     private float Attackcooldown;
@@ -39,7 +39,7 @@ public class PlayerCharacter : MonoBehaviour
     private PlayerAudio PlayerObj;
     //Keeps count of coins
     public int coins;
-  //A boolean made to determine what direction the player is looking in
+    //A boolean made to determine what direction the player is looking in
     private bool facingRight;
     //A float made to check a change in the direction checking if the velocity is currently positive or negative. 
     float direction;
@@ -57,9 +57,9 @@ public class PlayerCharacter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
-    //Calls on the component RigidBody
-    rb = GetComponent<Rigidbody2D>();
+
+        //Calls on the component RigidBody
+        rb = GetComponent<Rigidbody2D>();
         bc = GetComponent<BoxCollider2D>();
         facingRight = true;
         nextdashtime = 0;
@@ -75,7 +75,7 @@ public class PlayerCharacter : MonoBehaviour
     }
     private void Updates()
     {
-        
+
         //If the player is grounded and jumps (using space) the game gives permission to jump
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
@@ -137,7 +137,8 @@ public class PlayerCharacter : MonoBehaviour
             //runs the function Flip
             Flip();
             //if the players direction is negative and they're not looking to the right then the player is flipped
-        } else if (direction < 0 && facingRight)
+        }
+        else if (direction < 0 && facingRight)
         {
             //runs the function Flip
             Flip();
@@ -151,13 +152,13 @@ public class PlayerCharacter : MonoBehaviour
         //Checks if the space bar is pressed and if the player is on the ground (if not then they wont jump, this is to avoid infinite jumping
         if (jumpRequest)
         {
-            
+
             //if the space bar is pressed the player gets moved up by the set variable "jumpForce" 
 
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             //The request to jump is no longer true and thus the player can no longer jump
             jumpRequest = false;
-            
+
         }
 
         //If the player isnt touching the ground BUT does have a double jump still remaining then the if statement below will trigger
@@ -206,20 +207,20 @@ public class PlayerCharacter : MonoBehaviour
         //Gives a cooldown period of 3 seconds until they can dash again
         if (Time.time > nextdashtime)
         {
-                //States in the log the cooldown is starting again
-                PlayerObj.Source.clip = PlayerObj.DashSound;
-                PlayerObj.Source.Play();
-                //Gives 10 units of speed to the right
-                rb.velocity = new Vector2(Input.GetAxis("Horizontal") * 10, 0f);
-                //resets the cooldown timer
-                nextdashtime = Time.time + dashCooldown;
+            //States in the log the cooldown is starting again
+            PlayerObj.Source.clip = PlayerObj.DashSound;
+            PlayerObj.Source.Play();
+            //Gives 10 units of speed to the right
+            rb.velocity = new Vector2(Input.GetAxis("Horizontal") * 10, 0f);
+            //resets the cooldown timer
+            nextdashtime = Time.time + dashCooldown;
         }
 
     }
     void Melee()
     {
-        
-        if(Attackcooldown <= 0)
+
+        if (Attackcooldown <= 0)
         {
             //If the left mouse button is pressed
             if (Input.GetKey(KeyCode.Mouse0))
@@ -228,14 +229,14 @@ public class PlayerCharacter : MonoBehaviour
                 PlayerObj.Source.clip = PlayerObj.MeleeSound;
                 PlayerObj.Source.Play();
                 //Creates a circlular collider at the the shootingpoint transform with a set attack range and makes it only deal damage to enemies
-                Collider2D[] Enemies = Physics2D.OverlapBoxAll(AttackPoint.position, new Vector2(AttackRangeX,AttackRangeY),0,EnemyIdentifier);
+                Collider2D[] Enemies = Physics2D.OverlapBoxAll(AttackPoint.position, new Vector2(AttackRangeX, AttackRangeY), 0, EnemyIdentifier);
                 //Creates a for loop
                 for (int i = 0; i < Enemies.Length; i++)
                 {
                     //References the enemies
                     Enemies[i].GetComponent<EnemyBehaviour>().health -= MeleeDamage;
                     print("hit");
-                } 
+                }
             }
             Attackcooldown = nextattacktime;
         }
@@ -244,11 +245,11 @@ public class PlayerCharacter : MonoBehaviour
         {
             Attackcooldown -= Time.deltaTime;
         }
-       
+
     }
     void Shoot()
     {
-        
+
         PlayerObj.Source.clip = PlayerObj.ShootingSound;
         PlayerObj.Source.Play();
         //Spawns the bullet prebab at the shootingpos position on the player at the correct rotation of the player
@@ -260,10 +261,10 @@ public class PlayerCharacter : MonoBehaviour
         facingRight = !facingRight;
         //Rotates the player in the y axis to change for shooting
         transform.Rotate(0f, 180f, 0f);
-        
 
-       
-        
+
+
+
     }
     //Checks for collisions
     private void OnTriggerEnter2D(Collider2D other)
@@ -284,7 +285,11 @@ public class PlayerCharacter : MonoBehaviour
             PlayerObj.Source.clip = PlayerObj.DamageSound;
             PlayerObj.Source.Play();
             Health -= 5;
-        }
+            {
+                Health -= 5;
+            }
 
+        }
     }
 }
+
