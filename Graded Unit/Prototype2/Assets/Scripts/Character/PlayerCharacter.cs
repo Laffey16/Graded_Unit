@@ -272,16 +272,8 @@ public class PlayerCharacter : MonoBehaviour
         }
         //If the player touches an enemy the player takes 5 damage
         if (other.gameObject.CompareTag(("Enemies")))
-        {
-            if ()
-            {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                other.gameObject
-            }
-            else
-            {
-                Health -= 5;
-            }
+        {      
+            Health -= 5;  
         }
     }
 }
