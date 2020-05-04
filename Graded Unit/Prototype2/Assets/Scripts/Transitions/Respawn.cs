@@ -13,8 +13,10 @@ public class Respawn : MonoBehaviour
     public Transform PauseButton;
     public Transform MenuButton;
     public AudioSource BackgroundMusic;
+    public bool IsDead;
     private void Awake()
     {
+        IsDead = false;
         //Sets the game back to regular speed for when the scene restarts
         Time.timeScale = 1;
         //References the Player so the players health can be checked
@@ -29,6 +31,7 @@ public class Respawn : MonoBehaviour
         //If the players health is 0
         if(playerObj.Health <=0)
         {
+           
             //Runs the Gameover Method
             GameOver();
         }
@@ -47,6 +50,7 @@ public class Respawn : MonoBehaviour
     }
     public void GameOver()
     {
+        IsDead = true;
         //Shows all game HUD needed for a game over screen
         GameOverText.gameObject.SetActive(true);
         PauseButton.gameObject.SetActive(true);

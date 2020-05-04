@@ -21,6 +21,7 @@ public class PlayerCharacter : MonoBehaviour
     public LayerMask GroundType;
     public LayerMask EnemyIdentifier;
     public int MeleeDamage;
+    public int BulletDamage;
     //Boolean that turns on each time the player touches the ground. To allow a player a double jump but no more
     private bool doublejump;
     //A variable to reference the rigid body of the character
@@ -36,7 +37,8 @@ public class PlayerCharacter : MonoBehaviour
     private float Attackcooldown;
     public float nextattacktime;
     //References the PlayerAudio Script. It handles all the audio 
-    private PlayerAudio PlayerObj;
+    private PlayerAudio AudioObj;
+    private EnemyHealth EnemyHealthObj;
     //Keeps count of coins
     public int coins;
     //A boolean made to determine what direction the player is looking in
@@ -63,8 +65,9 @@ public class PlayerCharacter : MonoBehaviour
         bc = GetComponent<BoxCollider2D>();
         facingRight = true;
         nextdashtime = 0;
-        PlayerObj = GameObject.FindObjectOfType<PlayerAudio>();
+        AudioObj = GameObject.FindObjectOfType<PlayerAudio>();
         RespawnObj = GameObject.FindObjectOfType<Respawn>();
+        EnemyHealthObj = GameObject.FindObjectOfType<EnemyHealth>();
     }
     private void Update()
     {
@@ -80,16 +83,16 @@ public class PlayerCharacter : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             //Accesses the PlayerAudio script and plays a jump sound when the player jumps
-            PlayerObj.Source.clip = PlayerObj.JumpSound;
-            PlayerObj.Source.Play();
+            AudioObj.Source.clip = AudioObj.JumpSound;
+            AudioObj.Source.Play();
             jumpRequest = true;
         }
         //If the player still has a jump left and jumps (using space) the game gives permission to double jump
         else if (Input.GetKeyDown(KeyCode.Space) && doublejump == true)
         {
             //Accesses the PlayerAudio script and plays a different jump sound when the player double jumps
-            PlayerObj.Source.clip = PlayerObj.DoubleJumpSound;
-            PlayerObj.Source.Play();
+            AudioObj.Source.clip = AudioObj.DoubleJumpSound;
+            AudioObj.Source.Play();
             doubleJumpRequest = true;
         }
         // If the left mouse button is pressed
@@ -208,8 +211,8 @@ public class PlayerCharacter : MonoBehaviour
         if (Time.time > nextdashtime)
         {
             //States in the log the cooldown is starting again
-            PlayerObj.Source.clip = PlayerObj.DashSound;
-            PlayerObj.Source.Play();
+            AudioObj.Source.clip = AudioObj.DashSound;
+            AudioObj.Source.Play();
             //Gives 10 units of speed to the right
             rb.velocity = new Vector2(Input.GetAxis("Horizontal") * 10, 0f);
             //resets the cooldown timer
@@ -226,16 +229,14 @@ public class PlayerCharacter : MonoBehaviour
             if (Input.GetKey(KeyCode.Mouse0))
             {
                 //References Player Audio and states if the enemy was hit
-                PlayerObj.Source.clip = PlayerObj.MeleeSound;
-                PlayerObj.Source.Play();
+                AudioObj.Source.clip = AudioObj.MeleeSound;
+                AudioObj.Source.Play();
                 //Creates a circlular collider at the the shootingpoint transform with a set attack range and makes it only deal damage to enemies
                 Collider2D[] Enemies = Physics2D.OverlapBoxAll(AttackPoint.position, new Vector2(AttackRangeX, AttackRangeY), 0, EnemyIdentifier);
                 //Creates a for loop
                 for (int i = 0; i < Enemies.Length; i++)
                 {
-                    //References the enemies
-                    Enemies[i].GetComponent<EnemyBehaviour>().health -= MeleeDamage;
-                    print("hit");
+                    Enemies[i].GetComponent<EnemyHealth>().MeleeDamage();
                 }
             }
             Attackcooldown = nextattacktime;
@@ -250,8 +251,8 @@ public class PlayerCharacter : MonoBehaviour
     void Shoot()
     {
 
-        PlayerObj.Source.clip = PlayerObj.ShootingSound;
-        PlayerObj.Source.Play();
+        AudioObj.Source.clip = AudioObj.ShootingSound;
+        AudioObj.Source.Play();
         //Spawns the bullet prebab at the shootingpos position on the player at the correct rotation of the player
         Instantiate(BulletPrefeb, ShootPoint.position, ShootPoint.rotation);
     }
@@ -275,15 +276,15 @@ public class PlayerCharacter : MonoBehaviour
             //Destroys the coin so it cant be continuously picked up
             Destroy(other.gameObject);
             //Plays the coin sound effect "Coin_Sound_effect.wav"
-            PlayerObj.Source.clip = PlayerObj.CoinSound;
-            PlayerObj.Source.Play();
+            AudioObj.Source.clip = AudioObj.CoinSound;
+            AudioObj.Source.Play();
             coins += 1;
         }
         //If the player touches an enemy the player takes 5 damage
         if (other.gameObject.CompareTag(("Enemies")))
         {
-            PlayerObj.Source.clip = PlayerObj.DamageSound;
-            PlayerObj.Source.Play();
+            AudioObj.Source.clip = AudioObj.DamageSound;
+            AudioObj.Source.Play();
             Health -= 5;
             {
                 Health -= 5;

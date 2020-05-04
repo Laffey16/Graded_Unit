@@ -1509,12 +1509,17 @@ PrefabInstance:
     - target: {fileID: 2866731514376206707, guid: 2d56fd64b34d3b9419160392088ed6a6,
         type: 3}
       propertyPath: Health
-      value: 25
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2866731514376206707, guid: 2d56fd64b34d3b9419160392088ed6a6,
         type: 3}
       propertyPath: MeleeDamage
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866731514376206707, guid: 2d56fd64b34d3b9419160392088ed6a6,
+        type: 3}
+      propertyPath: BulletDamage
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2866731514376206712, guid: 2d56fd64b34d3b9419160392088ed6a6,
         type: 3}
@@ -1529,12 +1534,12 @@ PrefabInstance:
     - target: {fileID: 2866731514376206716, guid: 2d56fd64b34d3b9419160392088ed6a6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.6689253
+      value: -9.24
       objectReference: {fileID: 0}
     - target: {fileID: 2866731514376206716, guid: 2d56fd64b34d3b9419160392088ed6a6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.94692683
+      value: -0.59
       objectReference: {fileID: 0}
     - target: {fileID: 2866731514376206716, guid: 2d56fd64b34d3b9419160392088ed6a6,
         type: 3}
@@ -3051,6 +3056,7 @@ MonoBehaviour:
   PauseButton: {fileID: 2017075558}
   MenuButton: {fileID: 1312985549}
   BackgroundMusic: {fileID: 925326533}
+  IsDead: 0
 --- !u!61 &1213364868
 BoxCollider2D:
   m_ObjectHideFlags: 0

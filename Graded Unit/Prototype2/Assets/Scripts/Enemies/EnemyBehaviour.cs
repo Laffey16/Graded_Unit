@@ -8,7 +8,6 @@ using Vector2 = UnityEngine.Vector2;
 //WILL BE EXPANEDED UPON
 public class EnemyBehaviour : MonoBehaviour
 {//Enemy health
-    public int health=5;
 //A way to reference the enemies health bar
     public Slider slider;
     //The speed the enemy moves
@@ -21,17 +20,14 @@ public class EnemyBehaviour : MonoBehaviour
     public GameObject DamageEffect;
     private AudioSource EnemySource;
     public AudioClip DamageSound;
+    private EnemyHealth HealthObj;
 
     private void Start()
     {
-        HealthBar();
-    }
-    private void HealthBar()
-    {
-        //When the enemy spawns it makes sure the healthbar is full.
-        slider.maxValue = health;
+        HealthObj = GameObject.FindObjectOfType<EnemyHealth>();
         EnemySource = GetComponent<AudioSource>();
     }
+    
     private void FixedUpdate()
     {
         
@@ -103,24 +99,17 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //Everytime a collision occurs makes sure the slider health is the same as the enemy health
-        slider.value = health;
+       
         //And this object happens to interact with a bullet
         if (other.CompareTag("Bullet"))
         {
+            //Spawns a 
             Instantiate(DamageEffect, transform.position, Quaternion.identity);
-            //minus 1 health
-            health -= 1;
+            HealthObj.BulletDamage();
             EnemySource.clip = DamageSound;
             EnemySource.Play();
         }
-        //If their health is equal to 0 they die
-        if (health<=0)
-        {
-            //Destroys the enemy
-            Destroy(gameObject);
-           
-        }
+       
     }
     
 

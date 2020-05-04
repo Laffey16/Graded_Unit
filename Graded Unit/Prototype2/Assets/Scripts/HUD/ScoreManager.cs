@@ -31,7 +31,7 @@ public class ScoreManager : MonoBehaviour
     private void Pausing()
     {
         //If the player presses play and isnt paused
-        if (Input.GetKeyDown(KeyCode.Escape) && IsPaused == false)
+        if (Input.GetKeyDown(KeyCode.Escape) && IsPaused == false && RespawnObj.IsDead == false)
         {
             //The pause menu will appear (borrowed from game over)
             RespawnObj.PauseButton.gameObject.SetActive(true);

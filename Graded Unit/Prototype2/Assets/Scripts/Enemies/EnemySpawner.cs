@@ -11,11 +11,13 @@ public class EnemySpawner : MonoBehaviour
     private int RandomSpawn;
     [SerializeField]
     private float SpawnTime=25;
+    
     // Start is called before the first frame update
     void Start()
     {
         //Every x amount of seconds in this case 100 the sub spawn enemy is called 
         InvokeRepeating("SpawnEnemy", 0f, SpawnTime);  
+
     }
 
     
