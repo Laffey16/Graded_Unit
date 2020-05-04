@@ -1499,7 +1499,7 @@ PrefabInstance:
     - target: {fileID: 2866731514376206707, guid: 2d56fd64b34d3b9419160392088ed6a6,
         type: 3}
       propertyPath: AttackRangeX
-      value: 1.25
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 2866731514376206707, guid: 2d56fd64b34d3b9419160392088ed6a6,
         type: 3}
@@ -1521,6 +1521,11 @@ PrefabInstance:
       propertyPath: BulletDamage
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2866731514376206707, guid: 2d56fd64b34d3b9419160392088ed6a6,
+        type: 3}
+      propertyPath: AttackPoint
+      value: 
+      objectReference: {fileID: 2096510485}
     - target: {fileID: 2866731514376206712, guid: 2d56fd64b34d3b9419160392088ed6a6,
         type: 3}
       propertyPath: m_Name
@@ -1534,12 +1539,12 @@ PrefabInstance:
     - target: {fileID: 2866731514376206716, guid: 2d56fd64b34d3b9419160392088ed6a6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.24
+      value: -9.354
       objectReference: {fileID: 0}
     - target: {fileID: 2866731514376206716, guid: 2d56fd64b34d3b9419160392088ed6a6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.59
+      value: -1.638
       objectReference: {fileID: 0}
     - target: {fileID: 2866731514376206716, guid: 2d56fd64b34d3b9419160392088ed6a6,
         type: 3}
@@ -1590,6 +1595,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568453658767489131, guid: 2d56fd64b34d3b9419160392088ed6a6,
+        type: 3}
+      propertyPath: m_Name
+      value: AttackPos
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101187753028169149, guid: 2d56fd64b34d3b9419160392088ed6a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.208
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d56fd64b34d3b9419160392088ed6a6, type: 3}
@@ -5109,6 +5124,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060975027}
   m_CullTransparentMesh: 0
+--- !u!4 &2096510485 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7101187753028169149, guid: 2d56fd64b34d3b9419160392088ed6a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 588448717}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2112383906
 GameObject:
   m_ObjectHideFlags: 0
