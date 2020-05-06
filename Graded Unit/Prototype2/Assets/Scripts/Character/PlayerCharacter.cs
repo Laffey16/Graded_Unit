@@ -218,7 +218,6 @@ public class PlayerCharacter : MonoBehaviour
             //resets the cooldown timer
             nextdashtime = Time.time + dashCooldown;
         }
-
     }
     void Melee()
     {

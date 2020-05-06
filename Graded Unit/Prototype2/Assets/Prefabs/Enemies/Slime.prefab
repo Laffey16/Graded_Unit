@@ -42,8 +42,7 @@ GameObject:
   - component: {fileID: 1139311520066725405}
   - component: {fileID: 1139311520066725404}
   - component: {fileID: 1139311520066725407}
-  - component: {fileID: 1139311520066725406}
-  - component: {fileID: 1139311520066725393}
+  - component: {fileID: -631629515037383773}
   m_Layer: 10
   m_Name: Slime
   m_TagString: Enemies
@@ -153,7 +152,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!58 &1139311520066725406
+--- !u!58 &-631629515037383773
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,19 +168,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &1139311520066725393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1139311520066725392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b65d1683e1780c429e38ce643f32777, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GroundType:
-    serializedVersion: 2
-    m_Bits: 256
-  GroundDetection: {fileID: 7936955639787247164}
