@@ -301,7 +301,7 @@ MonoBehaviour:
   GroundDetection: {fileID: 7936955639787247164}
   speed: 5
   aggrospeed: 5
-  radius: 3.58
+  radius: 5.19
   PlayerID:
     serializedVersion: 2
     m_Bits: 512

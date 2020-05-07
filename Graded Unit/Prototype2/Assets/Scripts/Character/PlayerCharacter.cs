@@ -79,7 +79,6 @@ public class PlayerCharacter : MonoBehaviour
     }
     private void Updates()
     {
-        print(IsGrounded());
         Animations.SetBool("OnGround", IsGrounded());
         //If the player is grounded and jumps (using space) the game gives permission to jump
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())

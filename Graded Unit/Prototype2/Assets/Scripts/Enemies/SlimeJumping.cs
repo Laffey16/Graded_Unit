@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SlimeJumping : MonoBehaviour
 {
@@ -21,18 +22,33 @@ public class SlimeJumping : MonoBehaviour
     private Coroutine SlimeAgro;
     private bool isgrounded;
     public Transform player;
+    private Slider slider;
     // Start is called before the first frame update
     void Start()
     {
         RandomJump = Random.Range(2,4);
         rb = GetComponent<Rigidbody2D>();
-        
     }
     private void FixedUpdate()
     {
         SlimeActions();
     }
+    private void Update()
+    {
+        RaycastHit2D grounddetector = Physics2D.Raycast(GroundDetection.position, Vector2.down, 3, GroundType);
+        {
+            if (grounddetector.collider == true)
+            {
+                isgrounded = true;
+            }
+            else
+            {
+                isgrounded = false;
+            }
+        }
+        print(isgrounded);
 
+    }
 
     IEnumerator IdleStance()
     {
@@ -60,17 +76,7 @@ public class SlimeJumping : MonoBehaviour
             print("PlayerEscaped");
             StopCoroutine("Agro");
         }
-        RaycastHit2D grounddetector = Physics2D.Raycast(GroundDetection.position, Vector2.down, 3, GroundType);
-        {
-            if(grounddetector.collider==true)
-            {
-                isgrounded = true;
-            }
-            else
-            {
-                isgrounded = false;
-            }
-        }
+       
 
     }
     IEnumerator Agro()
@@ -82,12 +88,20 @@ public class SlimeJumping : MonoBehaviour
             // 1 if player is to the right of the slime, If -1 if to the left
             int direction = (this.transform.position.x < player.transform.position.x) ? 1 : -1;
             print(direction);
-            // Jump towards the player
+           
             if(isgrounded==true)
             {
-                rb.velocity = (new Vector2(aggrospeed * direction, jumpForce));
+                    // Jump towards the player
+                    rb.velocity = (new Vector2(aggrospeed * direction, jumpForce));
             }
-           
+            if (direction == 1)
+            {
+                transform.eulerAngles = new UnityEngine.Vector3(0, -180, 0);
+            }
+            else if (direction == -1)
+            {
+                transform.eulerAngles = new UnityEngine.Vector3(0, 0, 0);
+            }
             yield return new WaitForSeconds(3);
 
         }
@@ -99,10 +113,7 @@ public class SlimeJumping : MonoBehaviour
         //Creates the wireframe from the shooting point and uses the variable attackRange to represent how big or small it is.
         Gizmos.DrawWireSphere(transform.position, radius);
     }
-    private void Update()
-    {
-        
-    }
+   
 }
    
 

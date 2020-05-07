@@ -24,8 +24,10 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
+
         //Chooses a random number between 0 and 1
-        Enemychooser = Random.Range(0, 1);
+        Enemychooser = Random.Range(0, 2);
+        print(Enemychooser);
         //If 0 is chosen then a slime spawns
         if (Enemychooser == 0) {
             EnemyChosen = Slime;
@@ -38,7 +40,7 @@ public class EnemySpawner : MonoBehaviour
         //Randomizes which spawnpoint will be chosen. This is repeating each look
         RandomSpawn = Random.Range(0, spawnPoints.Length);
         //An enemy(chosen previously) is spawned at the random spawn point chosen, with the correct rotation in respect to the spawn point
-        Instantiate(EnemyChosen, spawnPoints[RandomSpawn].position, Quaternion.identity);
+       Instantiate(EnemyChosen, spawnPoints[RandomSpawn].position, Quaternion.identity);
     }
 
 

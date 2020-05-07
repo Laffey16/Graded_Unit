@@ -2383,7 +2383,7 @@ MonoBehaviour:
   - {fileID: 663703994}
   Enemy: {fileID: 562839724032558870, guid: beef8d0d757f126498c99f9ee6a41142, type: 3}
   Slime: {fileID: 1139311520066725392, guid: 90f46d26bc362984a9ed41ca57d49bbb, type: 3}
-  SpawnTime: 25
+  SpawnTime: 20
 --- !u!4 &910924610
 Transform:
   m_ObjectHideFlags: 0
