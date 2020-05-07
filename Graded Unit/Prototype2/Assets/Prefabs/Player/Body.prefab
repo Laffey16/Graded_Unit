@@ -155,7 +155,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   MeleeDamage: 2
-  BulletDamage: 0
+  BulletDamage: 2
   dashCooldown: 2
   Health: 20
   nextattacktime: 0.25
@@ -164,8 +164,9 @@ MonoBehaviour:
   BulletPrefeb: {fileID: 4963000656284536929, guid: 263acf329af283047b5cf803800c1607,
     type: 3}
   AttackPoint: {fileID: 2866731514380185138}
-  AttackRangeX: 0
-  AttackRangeY: 0
+  AttackRangeX: 2.71
+  AttackRangeY: 2.05
+  Animations: {fileID: 5654911776786903037}
 --- !u!114 &2866731514376206705
 MonoBehaviour:
   m_ObjectHideFlags: 0

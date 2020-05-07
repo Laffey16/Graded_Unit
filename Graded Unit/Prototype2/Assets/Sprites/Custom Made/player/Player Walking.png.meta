@@ -1,34 +1,28 @@
 fileFormatVersion: 2
-guid: ab035771d77d82247a9d8ecfaff01866
+guid: 6aaa8b0ff4aabf04cb92346af62ba3e8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7485893831661046342
-    second: CoinsAnimation_0
+      213: -3664162494846504755
+    second: Player Walking_0
   - first:
-      213: -7885785764825897324
-    second: CoinsAnimation_1
+      213: -9175317620029055432
+    second: Player Walking_1
   - first:
-      213: 9221557056195947694
-    second: CoinsAnimation_2
+      213: 6021878478135626376
+    second: Player Walking_2
   - first:
-      213: 8857195600787249621
-    second: CoinsAnimation_0
+      213: -3494579433688671638
+    second: Player Walking_3
   - first:
-      213: 2173741646264997563
-    second: CoinsAnimation_1
+      213: 7450432814704030612
+    second: Player Walking_4
   - first:
-      213: -5690829695279202292
-    second: CoinsAnimation_2
+      213: -4034057469288550932
+    second: Player Walking_5
   - first:
-      213: -4440478966641066384
-    second: CoinsAnimation_3
-  - first:
-      213: -2029428756350933533
-    second: CoinsAnimation_4
-  - first:
-      213: -3590740263894232435
-    second: CoinsAnimation_5
+      213: 8610135092601500517
+    second: Player Walking_6
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -113,13 +107,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CoinsAnimation_0
+      name: Player Walking_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 12
-        height: 16
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,20 +121,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d99313b8741bea70800000000000000
-      internalID: 8857195600787249621
+      spriteID: dc07d5fdf97462dc0800000000000000
+      internalID: -3664162494846504755
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CoinsAnimation_1
+      name: Player Walking_1
       rect:
         serializedVersion: 2
-        x: 12
+        x: 16
         y: 0
-        width: 12
-        height: 16
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,20 +142,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb61913a28eaa2e10800000000000000
-      internalID: 2173741646264997563
+      spriteID: 83e19cccc39baa080800000000000000
+      internalID: -9175317620029055432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CoinsAnimation_2
+      name: Player Walking_2
       rect:
         serializedVersion: 2
-        x: 24
+        x: 32
         y: 0
-        width: 12
-        height: 16
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,41 +163,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0083af1b8c1601b0800000000000000
-      internalID: -5690829695279202292
+      spriteID: 88a08d11292029350800000000000000
+      internalID: 6021878478135626376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CoinsAnimation_3
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 0
-        width: 12
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 07ef3c018ef3062c0800000000000000
-      internalID: -4440478966641066384
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CoinsAnimation_4
+      name: Player Walking_3
       rect:
         serializedVersion: 2
         x: 48
         y: 0
-        width: 12
-        height: 16
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -211,20 +184,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e56db86c4506d3e0800000000000000
-      internalID: -2029428756350933533
+      spriteID: a6ad9972582c08fc0800000000000000
+      internalID: -3494579433688671638
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CoinsAnimation_5
+      name: Player Walking_4
       rect:
         serializedVersion: 2
-        x: 60
+        x: 64
         y: 0
-        width: 12
-        height: 16
+        width: 16
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,8 +205,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8254e921c02b2ec0800000000000000
-      internalID: -3590740263894232435
+      spriteID: 493f85fbb21456760800000000000000
+      internalID: 7450432814704030612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Walking_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ced6b83ea162408c0800000000000000
+      internalID: -4034057469288550932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Walking_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56333ae8f385d7770800000000000000
+      internalID: 8610135092601500517
       vertices: []
       indices: 
       edges: []

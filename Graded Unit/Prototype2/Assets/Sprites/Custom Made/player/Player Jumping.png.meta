@@ -16,28 +16,28 @@ TextureImporter:
     second: ezgif.com-gif-maker (1)_3
   - first:
       213: -7463212572175906753
-    second: Walking Player_0
+    second: Jumping Player_0
   - first:
       213: 8396652066360540092
-    second: Walking Player_1
+    second: Jumping Player_1
   - first:
       213: 4303120006737462079
-    second: Walking Player_2
+    second: Jumping Player_2
   - first:
       213: -5739595254930267738
-    second: Walking Player_3
+    second: Jumping Player_3
   - first:
       213: -2385138694975664131
-    second: Walking Player_0
+    second: Jumping Player_0
   - first:
       213: -5140143791893478586
-    second: Walking Player_1
+    second: Jumping Player_1
   - first:
       213: -1987033439318100272
-    second: Walking Player_2
+    second: Jumping Player_2
   - first:
       213: 7933643639910394507
-    second: Walking Player_3
+    second: Jumping Player_3
   - first:
       213: 6675639269650692922
     second: Walking Player_4
@@ -134,7 +134,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walking Player_0
+      name: Jumping Player_0
       rect:
         serializedVersion: 2
         x: 32
@@ -142,7 +142,7 @@ TextureImporter:
         width: 16
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,7 +155,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walking Player_1
+      name: Jumping Player_1
       rect:
         serializedVersion: 2
         x: 112
@@ -163,7 +163,7 @@ TextureImporter:
         width: 16
         height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,7 +176,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walking Player_2
+      name: Jumping Player_2
       rect:
         serializedVersion: 2
         x: 192
@@ -184,7 +184,7 @@ TextureImporter:
         width: 16
         height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,7 +197,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walking Player_3
+      name: Jumping Player_3
       rect:
         serializedVersion: 2
         x: 272
@@ -205,7 +205,7 @@ TextureImporter:
         width: 16
         height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

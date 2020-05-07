@@ -56,6 +56,7 @@ public class PlayerCharacter : MonoBehaviour
     //These 2 variables are used to control how large of an area the melee hitbox takes up
     public float AttackRangeX;
     public float AttackRangeY;
+    public Animator Animations;
     // Start is called before the first frame update
     void Start()
     {
@@ -78,7 +79,8 @@ public class PlayerCharacter : MonoBehaviour
     }
     private void Updates()
     {
-
+        print(IsGrounded());
+        Animations.SetBool("OnGround", IsGrounded());
         //If the player is grounded and jumps (using space) the game gives permission to jump
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
@@ -131,6 +133,8 @@ public class PlayerCharacter : MonoBehaviour
         //Gets input from the Unity Horizontal function for movement using A or D (or left arrow or right arrow)
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         //Moves at a fixed rate 
+        float HorizontalMovement = movement.x;
+        Animations.SetFloat("Movement", Mathf.Abs(HorizontalMovement));
         transform.position += movement * Time.deltaTime * moveSpeed;
         //Gives value to the direction as a float. This is used to compare which way the player is looking
         direction = (Input.GetAxis("Horizontal"));
