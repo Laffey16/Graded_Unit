@@ -201,7 +201,7 @@ public class PlayerCharacter : MonoBehaviour
     //A method for checking if they're on the ground
     private bool IsGrounded()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(bc.bounds.center, bc.bounds.size, 0f, Vector2.down, 0.5f, GroundType);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(bc.bounds.center, bc.bounds.size, 0f, Vector2.down, 1f, GroundType);
         return raycastHit.collider != null;
     }
 
