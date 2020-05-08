@@ -2009,7 +2009,7 @@ MonoBehaviour:
   m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -3088,6 +3088,7 @@ MonoBehaviour:
   MenuButton: {fileID: 1312985549}
   BackgroundMusic: {fileID: 925326533}
   IsDead: 0
+  GameOverMusic: {fileID: 8300000, guid: 32154fc3de2deed45ab89b95dcd3add8, type: 3}
 --- !u!61 &1213364868
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4137,7 +4138,7 @@ MonoBehaviour:
   m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0

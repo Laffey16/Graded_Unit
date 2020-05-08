@@ -14,6 +14,7 @@ public class Respawn : MonoBehaviour
     public Transform MenuButton;
     public AudioSource BackgroundMusic;
     public bool IsDead;
+    public AudioClip GameOverMusic;
     private void Awake()
     {
         IsDead = false;
@@ -57,6 +58,8 @@ public class Respawn : MonoBehaviour
         MenuButton.gameObject.SetActive(true);
         //Stops the background music
         BackgroundMusic.Stop();
+        BackgroundMusic.clip = GameOverMusic;
+        BackgroundMusic.Play();
         Time.timeScale = 0;
         print("Dead");
     }
