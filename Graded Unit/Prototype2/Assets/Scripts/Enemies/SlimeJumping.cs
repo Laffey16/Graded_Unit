@@ -39,6 +39,7 @@ public class SlimeJumping : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        SlimeActions();
     }
     private void Update()
     {

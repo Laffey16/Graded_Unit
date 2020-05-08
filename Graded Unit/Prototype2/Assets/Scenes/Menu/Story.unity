@@ -488,8 +488,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: The world has been thrown into chaos and discord due to the work of the
     evil Code Monkeys. Textures have been glitched, levels have been broken. It is
-    up to one young woman to save this world from the corruption of assets and restore
-    order to this broken land.
+    up to one young woman name Hylda to save this world from the corruption of assets
+    and restore order to this broken land.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -558,12 +558,12 @@ MonoBehaviour:
   m_margin: {x: -237.05551, y: 0, z: -214.34352, w: -309.4497}
   m_textInfo:
     textComponent: {fileID: 513091139}
-    characterCount: 260
+    characterCount: 271
     spriteCount: 0
-    spaceCount: 48
-    wordCount: 49
+    spaceCount: 50
+    wordCount: 51
     linkCount: 0
-    lineCount: 7
+    lineCount: 8
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
