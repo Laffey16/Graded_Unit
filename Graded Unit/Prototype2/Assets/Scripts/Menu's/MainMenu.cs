@@ -15,8 +15,8 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         
-        //Using the Unity import "Scenemanager" by pressing the button the game loads the first level
-        SceneManager.LoadScene("Scene_1");
+        //Loads the story so you can then start the game
+        SceneManager.LoadScene("Story");
         MenuSounds.clip = ClickSound;
         MenuSounds.Play();
         
@@ -44,6 +44,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
         MenuSounds.clip = ClickSound;
         MenuSounds.Play();
+    }
+    public void StoryStart()
+    {
+        //Loads the first level
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
 
