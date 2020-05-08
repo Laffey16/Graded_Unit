@@ -30,7 +30,7 @@ public class Respawn : MonoBehaviour
     private void Update()
     {
         //If the players health is 0
-        if(playerObj.Health <=0)
+        if (playerObj.Health <= 0 && IsDead == false)
         {
            
             //Runs the Gameover Method
