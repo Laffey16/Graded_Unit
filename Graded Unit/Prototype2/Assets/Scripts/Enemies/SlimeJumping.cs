@@ -35,14 +35,17 @@ public class SlimeJumping : MonoBehaviour
     }
     private void Update()
     {
-        RaycastHit2D grounddetector = Physics2D.Raycast(GroundDetection.position, Vector2.down, 3, GroundType);
+        //Sends a raycast down checking if the ground is below them
+        RaycastHit2D grounddetector = Physics2D.Raycast(GroundDetection.position, Vector2.down, 1, GroundType);
         {
+            //If the ground is below them they can jump
             if (grounddetector.collider == true)
             {
                 isgrounded = true;
             }
             else
             {
+                //If the ground isnt below then they cant jump
                 isgrounded = false;
             }
         }
@@ -57,7 +60,9 @@ public class SlimeJumping : MonoBehaviour
         direction = 1;
         while (true)
         {
+            //sets a random jump time
             RandomJump = Random.Range(3, 5);
+            //Randomly jumps back and forth
             rb.velocity = (new Vector2(speed * direction, 0));
             direction *= -1;
             yield return new WaitForSeconds(RandomJump);
@@ -69,11 +74,13 @@ public class SlimeJumping : MonoBehaviour
         Collider2D PlayerDetection = Physics2D.OverlapCircle(transform.position, radius, PlayerID);
         if(PlayerDetection != null)
         {
+            //If the player is detected then the slime will become aggro'd and start attacking the player
             StartCoroutine("Agro");
         }
         else
         {
             print("PlayerEscaped");
+            //If the player isnt detected or is no longer detected then the slime will no longer attack the player
             StopCoroutine("Agro");
         }
        
