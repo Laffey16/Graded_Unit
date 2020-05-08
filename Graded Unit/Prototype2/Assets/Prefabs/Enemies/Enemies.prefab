@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 562839724032558870}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.3928804, y: -0.04968241, z: 1}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 87750703823213834}
   - {fileID: 8703233856640467686}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: 21300000, guid: 2e24fbc1a4d1a434dba58c8a9482c904, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9105d469814a2fc4894e3f95699172df, type: 3}
   m_Color: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,7 +122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f5b7d36dbd9824da3f2c8eab7c865a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
   slider: {fileID: 6837621888135302629}
   speed: 5
   GroundType:
@@ -245,7 +244,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -253,9 +252,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0.5}
-      - {x: -0.4330127, y: -0.25000003}
-      - {x: 0.43301272, y: -0.24999996}
+    - - {x: 0, y: 2}
+      - {x: 2, y: -2}
+      - {x: -2, y: -2}
 --- !u!60 &4102111122664657324
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -273,7 +272,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -281,9 +280,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0.5}
-      - {x: -0.4330127, y: -0.25000003}
-      - {x: 0.43301272, y: -0.24999996}
+    - - {x: 0, y: 2}
+      - {x: 2, y: -2}
+      - {x: -2, y: -2}
 --- !u!114 &-4372072053786765998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -677,7 +676,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7069352032007626189}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.443, y: -0.117, z: 0}
+  m_LocalPosition: {x: 2, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 562839724032558877}
