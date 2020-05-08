@@ -123,7 +123,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.026920438, y: -0.0024125576}
+  m_Offset: {x: -0.08222163, y: 0.03277898}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -134,7 +134,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9483602, y: 2.025105}
+  m_Size: {x: 0.8377578, y: 1.9547219}
   m_EdgeRadius: 0
 --- !u!114 &2866731514376206707
 MonoBehaviour:
@@ -182,7 +182,7 @@ MonoBehaviour:
   JumpSound: {fileID: 8300000, guid: d660a05d4d689fd41b00f12d2afed165, type: 3}
   DoubleJumpSound: {fileID: 8300000, guid: 013345577e6e74d499fb2e9aba1f8d46, type: 3}
   DashSound: {fileID: 8300000, guid: 04957d71705a5154c96d2ce128a5719b, type: 3}
-  CoinSound: {fileID: 8300000, guid: bc3af992a0299f24ebc47d40c6aa2c33, type: 3}
+  CoinSound: {fileID: 8300000, guid: 77871f8325a49d74ca9c054742e2d406, type: 3}
   MeleeSound: {fileID: 8300000, guid: c0c94a593ab473c47bb6638237fcaa97, type: 3}
   ShootingSound: {fileID: 8300000, guid: 29da17d1127710446a6c8f8322e4e257, type: 3}
   DamageSound: {fileID: 8300000, guid: b0542fa1538b950408a37e8c5b5f88b8, type: 3}

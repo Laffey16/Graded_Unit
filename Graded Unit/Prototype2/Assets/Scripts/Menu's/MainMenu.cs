@@ -50,5 +50,10 @@ public class MainMenu : MonoBehaviour
         //Loads the first level
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public void StoryRestart()
+    {
+        //Reloads the story
+        SceneManager.LoadScene("MainMenu");
+    }
 }
 

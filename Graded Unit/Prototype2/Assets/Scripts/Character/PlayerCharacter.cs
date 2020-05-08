@@ -253,6 +253,7 @@ public class PlayerCharacter : MonoBehaviour
     void Shoot()
     {
 
+        //Plays the shooting sound
         AudioObj.Source.clip = AudioObj.ShootingSound;
         AudioObj.Source.Play();
         //Spawns the bullet prebab at the shootingpos position on the player at the correct rotation of the player

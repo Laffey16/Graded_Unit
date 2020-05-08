@@ -42,10 +42,10 @@ public class Respawn : MonoBehaviour
     //private sub made specificially for collisions between different tags in a 2d spac
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //If this object collides with the tag "Player" then the if statement executes
+        //If this object collides with the tag "Player" then the if statement executes. This would be the deathzone at the bottom of a stage
         if (other.CompareTag("Player"))
         {
-            //Gameover
+            //Starts the gameover theme
             GameOver();
         }
     }
@@ -58,6 +58,7 @@ public class Respawn : MonoBehaviour
         MenuButton.gameObject.SetActive(true);
         //Stops the background music
         BackgroundMusic.Stop();
+        //Plays gameover music
         BackgroundMusic.clip = GameOverMusic;
         BackgroundMusic.Play();
         Time.timeScale = 0;

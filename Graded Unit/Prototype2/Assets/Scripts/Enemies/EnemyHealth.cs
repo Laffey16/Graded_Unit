@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
     //Sets the enemy health
-    public int health = 5;
+    public int health = 20;
     //A way to reference the enemies health bar
     public Slider slider;
     private PlayerCharacter PlayerObj;

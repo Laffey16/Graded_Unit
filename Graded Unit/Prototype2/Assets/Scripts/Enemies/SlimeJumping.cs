@@ -22,12 +22,18 @@ public class SlimeJumping : MonoBehaviour
     private Coroutine SlimeAgro;
     private bool isgrounded;
     public Transform player;
-    private Slider slider;
+    private EnemyHealth HealthObj;
+    public Slider slider;
+    public AudioClip DamageSound;
+    public GameObject DamageEffect;
+    private AudioSource EnemySource;
     // Start is called before the first frame update
     void Start()
     {
+        EnemySource = GetComponent<AudioSource>();
         RandomJump = Random.Range(2,4);
         rb = GetComponent<Rigidbody2D>();
+        HealthObj = GameObject.FindObjectOfType<EnemyHealth>();
     }
     private void FixedUpdate()
     {
@@ -112,6 +118,13 @@ public class SlimeJumping : MonoBehaviour
             yield return new WaitForSeconds(3);
 
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Instantiate(DamageEffect, transform.position, Quaternion.identity);
+        HealthObj.BulletDamage();
+        EnemySource.clip = DamageSound;
+        EnemySource.Play();
     }
     private void OnDrawGizmosSelected()
     {
