@@ -1,28 +1,19 @@
 fileFormatVersion: 2
-guid: 6aaa8b0ff4aabf04cb92346af62ba3e8
+guid: 172b0067bd9130a438f061c9ef15cb4f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3664162494846504755
-    second: Player Walking_0
+      213: -9090041069125521255
+    second: codemonkeyprojectilefixed_0
   - first:
-      213: -9175317620029055432
-    second: Player Walking_1
+      213: -3811789430793893396
+    second: codemonkeyprojectilefixed_1
   - first:
-      213: 6021878478135626376
-    second: Player Walking_2
+      213: -8320865474870458863
+    second: codemonkeyprojectilefixed_2
   - first:
-      213: -3494579433688671638
-    second: Player Walking_3
-  - first:
-      213: 7450432814704030612
-    second: Player Walking_4
-  - first:
-      213: -4034057469288550932
-    second: Player Walking_5
-  - first:
-      213: 8610135092601500517
-    second: Player Walking_6
+      213: -9204946924739716771
+    second: codemonkeyprojectilefixed_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -119,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player Walking_0
+      name: codemonkeyprojectilefixed_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 32
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc07d5fdf97462dc0800000000000000
-      internalID: -3664162494846504755
+      spriteID: 990bf090fcfa9d180800000000000000
+      internalID: -9090041069125521255
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walking_1
+      name: codemonkeyprojectilefixed_1
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
-        height: 32
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83e19cccc39baa080800000000000000
-      internalID: -9175317620029055432
+      spriteID: ce901fa55bdc91bc0800000000000000
+      internalID: -3811789430793893396
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walking_2
+      name: codemonkeyprojectilefixed_2
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 16
-        height: 32
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88a08d11292029350800000000000000
-      internalID: 6021878478135626376
+      spriteID: 116c88abfe8568c80800000000000000
+      internalID: -8320865474870458863
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walking_3
+      name: codemonkeyprojectilefixed_3
       rect:
         serializedVersion: 2
         x: 48
         y: 0
         width: 16
-        height: 32
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,71 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6ad9972582c08fc0800000000000000
-      internalID: -3494579433688671638
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player Walking_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 493f85fbb21456760800000000000000
-      internalID: 7450432814704030612
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player Walking_5
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ced6b83ea162408c0800000000000000
-      internalID: -4034057469288550932
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player Walking_6
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 56333ae8f385d7770800000000000000
-      internalID: 8610135092601500517
+      spriteID: d599096ba85714080800000000000000
+      internalID: -9204946924739716771
       vertices: []
       indices: 
       edges: []

@@ -1,28 +1,28 @@
 fileFormatVersion: 2
-guid: 6aaa8b0ff4aabf04cb92346af62ba3e8
+guid: 659085a60e0d2d7468eba775efd7b202
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3664162494846504755
-    second: Player Walking_0
+      213: -2308149203511349279
+    second: coinfixed_0
   - first:
-      213: -9175317620029055432
-    second: Player Walking_1
+      213: 567745647671828296
+    second: coinfixed_1
   - first:
-      213: 6021878478135626376
-    second: Player Walking_2
+      213: 5733417938274634968
+    second: coinfixed_2
   - first:
-      213: -3494579433688671638
-    second: Player Walking_3
+      213: -2008989005724706423
+    second: coinfixed_3
   - first:
-      213: 7450432814704030612
-    second: Player Walking_4
+      213: -813796554702595765
+    second: coinfixed_4
   - first:
-      213: -4034057469288550932
-    second: Player Walking_5
+      213: -3615061116456803523
+    second: coinfixed_5
   - first:
-      213: 8610135092601500517
-    second: Player Walking_6
+      213: -7442287358358432715
+    second: coinfixed_6
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -119,148 +119,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player Walking_0
+      name: coinfixed_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 32
+        width: 12
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc07d5fdf97462dc0800000000000000
-      internalID: -3664162494846504755
+      spriteID: 1efea1c478ec7ffd0800000000000000
+      internalID: -2308149203511349279
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walking_1
+      name: coinfixed_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 12
         y: 0
-        width: 16
-        height: 32
+        width: 12
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83e19cccc39baa080800000000000000
-      internalID: -9175317620029055432
+      spriteID: 84fd04498a901e700800000000000000
+      internalID: 567745647671828296
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walking_2
+      name: coinfixed_2
       rect:
         serializedVersion: 2
-        x: 32
+        x: 24
         y: 0
-        width: 16
-        height: 32
+        width: 12
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88a08d11292029350800000000000000
-      internalID: 6021878478135626376
+      spriteID: 8dc46b7ec31319f40800000000000000
+      internalID: 5733417938274634968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walking_3
+      name: coinfixed_3
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9891d14b423ae14e0800000000000000
+      internalID: -2008989005724706423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coinfixed_4
       rect:
         serializedVersion: 2
         x: 48
         y: 0
-        width: 16
-        height: 32
+        width: 12
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6ad9972582c08fc0800000000000000
-      internalID: -3494579433688671638
+      spriteID: b49d38d5850d4b4f0800000000000000
+      internalID: -813796554702595765
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walking_4
+      name: coinfixed_5
       rect:
         serializedVersion: 2
-        x: 64
+        x: 60
         y: 0
-        width: 16
-        height: 32
+        width: 12
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 493f85fbb21456760800000000000000
-      internalID: 7450432814704030612
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player Walking_5
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ced6b83ea162408c0800000000000000
-      internalID: -4034057469288550932
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player Walking_6
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 56333ae8f385d7770800000000000000
-      internalID: 8610135092601500517
+      spriteID: d33e3486119b4ddc0800000000000000
+      internalID: -3615061116456803523
       vertices: []
       indices: 
       edges: []

@@ -1,28 +1,19 @@
 fileFormatVersion: 2
-guid: 6aaa8b0ff4aabf04cb92346af62ba3e8
+guid: 6124d76ace63b3c4d845808d88b939b0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3664162494846504755
-    second: Player Walking_0
+      213: -2877401326395139503
+    second: coinplaceholder_0
   - first:
-      213: -9175317620029055432
-    second: Player Walking_1
+      213: 7157737685050789318
+    second: coinplaceholder_1
   - first:
-      213: 6021878478135626376
-    second: Player Walking_2
+      213: 5128874065545114461
+    second: coinplaceholder_2
   - first:
-      213: -3494579433688671638
-    second: Player Walking_3
-  - first:
-      213: 7450432814704030612
-    second: Player Walking_4
-  - first:
-      213: -4034057469288550932
-    second: Player Walking_5
-  - first:
-      213: 8610135092601500517
-    second: Player Walking_6
+      213: -3428646990828833866
+    second: coinplaceholder_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -119,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player Walking_0
+      name: coinplaceholder_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 32
+        width: 8
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,20 +124,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc07d5fdf97462dc0800000000000000
-      internalID: -3664162494846504755
+      spriteID: 15adaff1dba6118d0800000000000000
+      internalID: -2877401326395139503
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walking_1
+      name: coinplaceholder_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cd01e05084655360800000000000000
+      internalID: 7157737685050789318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coinplaceholder_2
       rect:
         serializedVersion: 2
         x: 16
         y: 0
-        width: 16
-        height: 32
+        width: 8
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83e19cccc39baa080800000000000000
-      internalID: -9175317620029055432
+      spriteID: d53b786e9cb6d2740800000000000000
+      internalID: 5128874065545114461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Walking_2
+      name: coinplaceholder_3
       rect:
         serializedVersion: 2
-        x: 32
+        x: 24
         y: 0
-        width: 16
-        height: 32
+        width: 8
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,92 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88a08d11292029350800000000000000
-      internalID: 6021878478135626376
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player Walking_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a6ad9972582c08fc0800000000000000
-      internalID: -3494579433688671638
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player Walking_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 493f85fbb21456760800000000000000
-      internalID: 7450432814704030612
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player Walking_5
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ced6b83ea162408c0800000000000000
-      internalID: -4034057469288550932
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player Walking_6
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 56333ae8f385d7770800000000000000
-      internalID: 8610135092601500517
+      spriteID: 6b37f634abffa60d0800000000000000
+      internalID: -3428646990828833866
       vertices: []
       indices: 
       edges: []

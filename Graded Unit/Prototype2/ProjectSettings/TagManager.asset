@@ -22,7 +22,7 @@ TagManager:
   - Ground
   - Player
   - Enemy
-  - 
+  - Background
   - 
   - 
   - 
@@ -44,6 +44,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2579421983
+    locked: 0
   - name: Geometry
     uniqueID: 3400257861
     locked: 0
