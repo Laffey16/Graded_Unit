@@ -27,6 +27,7 @@ public class SlimeJumping : MonoBehaviour
     public AudioClip DamageSound;
     public GameObject DamageEffect;
     private AudioSource EnemySource;
+    public float health;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,10 +35,10 @@ public class SlimeJumping : MonoBehaviour
         RandomJump = Random.Range(2,4);
         rb = GetComponent<Rigidbody2D>();
         HealthObj = GameObject.FindObjectOfType<EnemyHealth>();
+
     }
     private void FixedUpdate()
     {
-        SlimeActions();
     }
     private void Update()
     {
@@ -121,10 +122,10 @@ public class SlimeJumping : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Instantiate(DamageEffect, transform.position, Quaternion.identity);
-        HealthObj.BulletDamage();
-        EnemySource.clip = DamageSound;
-        EnemySource.Play();
+        if(collision.CompareTag("Bullet"))
+        {
+
+        }
     }
     private void OnDrawGizmosSelected()
     {

@@ -156,6 +156,7 @@ GameObject:
   - component: {fileID: 6740166516990749623}
   - component: {fileID: 8856215810816922035}
   - component: {fileID: 7388013426121776127}
+  - component: {fileID: 3452864789466584455}
   m_Layer: 10
   m_Name: Slime
   m_TagString: Enemies
@@ -425,6 +426,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3452864789466584455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139311520066725392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0ba0792525f9e41a5cfcd0a32a188e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 20
+  slider: {fileID: 0}
 --- !u!1 &4233461837427590141
 GameObject:
   m_ObjectHideFlags: 0

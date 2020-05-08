@@ -157,7 +157,7 @@ MonoBehaviour:
   MeleeDamage: 2
   BulletDamage: 2
   dashCooldown: 2
-  Health: 20
+  Health: 100
   nextattacktime: 0.25
   coins: 0
   ShootPoint: {fileID: 2866731514380185138}
